@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Analyzer</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='home.css') }}">
+
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+<div class="bg-wave wave-left"></div>
+<div class="bg-wave wave-right"></div>
+
+    <nav class="navbar">
+
+<div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AI Resume Analyzer Logo">
+</div>
+
+    <ul class="nav-links">
+    <li><a href="{{ url_for('home') }}" class="active">HOME</a></li>
+    <li><a href="{{ url_for('resources') }}">RESOURCES</a></li>
+    <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+    <li><a href="{{ url_for('signup') }}">SIGN UP</a></li>
+</ul>
+
+    </nav>
+
+   <section class="hero">
+
+    <!-- Left Side -->
+    <div class="hero-left">
+
+      <h1>
+    <span class="white">MAKE YOUR</span>
+    <span class="blue">RESUME</span>
+    <span class="purple">STAND OUT</span>
+</h1>
+
+        <div class="hero-line"></div>
+
+        <p>
+            AI-Powered insights to analyze, improve and
+            elevate your resume to get your dream job.
+        </p>
+
+    </div>
+
+    <!-- Right Side -->
+  <div class="hero-right">
+<div class="login-card">
+
+   <h2>WELCOME BACK</h2>
+
+<p>Sign in to continue your AI Resume journey</p>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+
+        {% if category == "email_error" %}
+            <div class="login-error">
+                {{ message }}
+            </div>
+        {% endif %}
+
+        
+    {% endfor %}
+{% endwith %}
+
+<form action="{{ url_for('login') }}" method="POST" id="loginForm">
+
+    <div class="input-box">
+        <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required>
+    </div>
+
+    <div class="input-box">
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required>
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+        {% if category == "password_error" %}
+            <div class="password-error">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endwith %}
+
+<div class="login-options">
+
+    <div class="remember-area">
+        <label>
+          <input type="checkbox" id="rememberMe" name="rememberMe" required>
+            Remember Me
+        </label>
+
+  
+    </div>
+
+    <a href="{{ url_for('forgot_password') }}" class="forgot-password">
+        Forgot Password?
+    </a>
+
+</div>
+
+    <button class="login-btn" type="submit">
+        LOGIN
+    </button>
+
+</form>
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+    <button
+    type="button"
+    class="signup-btn"
+    onclick="window.location.href='{{ url_for('signup') }}'">
+    <span class="signup-icon">👤+</span>
+    SIGN UP
+</button>
+        <p class="join-text">
+
+Join now and boost your career!
+
+</p>
+
+
+    </div>
+
+</div>
+
+</section> 
+
+</body>
+
+</html>

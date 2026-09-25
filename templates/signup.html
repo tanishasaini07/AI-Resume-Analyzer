@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | ResumeAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='signup.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Resume<span>AI</span>
+    </div>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="/">Sign In</a>
+    </div>
+
+</header>
+
+<div class="background-glow glow1"></div>
+<div class="background-glow glow2"></div>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+
+    <div class="left-panel">
+
+        <div class="badge">
+            <i class="fa-solid fa-sparkles"></i>
+            AI Powered Career Insights
+        </div>
+
+        <h1>
+            Create Your
+            <br>
+            <span>Account</span>
+        </h1>
+
+        <p class="description">
+            Join ResumeAI and unlock AI-powered resume analysis,
+            ATS scoring, personalized suggestions,
+            and interview preparation.
+        </p>
+
+        <div class="feature">
+
+            <div class="icon brain">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+
+                <h3>AI Powered Analysis</h3>
+
+                <p>
+                    Get intelligent resume insights
+                    in just a few seconds.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="icon shield">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+
+                <h3>ATS Compatibility</h3>
+
+                <p>
+                    Increase your chances of passing
+                    Applicant Tracking Systems.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="feature">
+
+            <div class="icon bolt">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div>
+
+                <h3>Instant Results</h3>
+
+                <p>
+                    Receive detailed reports and
+                    improvement suggestions instantly.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+
+    <div class="signup-card">
+
+        <div class="user-icon">
+
+            <i class="fa-solid fa-user-plus"></i>
+
+        </div>
+
+        <h2>Sign Up</h2>
+
+        <p>Create your account to get started</p>
+
+        <form action="/signup" method="POST">
+
+<div class="input-group">
+
+    <label class="input-label">Username</label>
+
+    <div class="input-box">
+
+        <i class="fa-regular fa-user"></i>
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Enter your username"
+            required>
+
+    </div>
+
+</div>
+
+
+
+<div class="input-group">
+
+    <label class="input-label">Email Address</label>
+
+    <div class="input-box">
+
+        <i class="fa-regular fa-envelope"></i>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required>
+
+    </div>
+
+</div>
+{% if email_error %}
+<p class="error-message">{{ email_error }}</p>
+{% endif %}
+
+<div class="input-group">
+
+    <label class="input-label">Password</label>
+
+    <div class="input-box">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create a password"
+            required>
+
+        <i id="togglePassword" class="fa-solid fa-eye eye"></i>
+
+    </div>
+
+</div>
+
+<div class="input-group">
+
+    <label class="input-label">Confirm Password</label>
+
+    <div class="input-box">
+
+        <i class="fa-solid fa-lock"></i>
+
+        <input
+            type="password"
+            id="confirmPassword"
+            name="confirm_password"
+            placeholder="Confirm password"
+            required>
+
+        <i id="toggleConfirmPassword" class="fa-solid fa-eye eye"></i>
+
+    </div>
+
+</div>
+
+<p id="passwordError" class="password-error"></p>
+
+<div class="terms">
+</div>
+
+            <div class="terms">
+
+                <input type="checkbox" id="agree" required>
+
+                <label for="agree">
+
+                    I agree to the
+
+                    <a href="#">Terms & Conditions</a>
+
+                    and
+
+                    <a href="#">Privacy Policy</a>
+
+                </label>
+
+            </div>
+
+            <button type="submit" class="signup-btn">
+
+                Create Account
+
+            </button>
+
+        </form>
+
+        <p class="bottom-text">
+
+            Already have an account?
+
+            <a href="/">Login</a>
+
+        </p>
+
+    </div>
+
+</div>
+<script>
+
+const togglePassword = document.getElementById("togglePassword");
+const password = document.getElementById("password");
+
+togglePassword.addEventListener("click", function () {
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        this.classList.replace("fa-eye", "fa-eye-slash");
+
+    } else {
+
+        password.type = "password";
+
+        this.classList.replace("fa-eye-slash", "fa-eye");
+
+    }
+
+});
+
+const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+const confirmPassword = document.getElementById("confirmPassword");
+
+toggleConfirmPassword.addEventListener("click", function () {
+
+    if (confirmPassword.type === "password") {
+
+        confirmPassword.type = "text";
+
+        this.classList.replace("fa-eye", "fa-eye-slash");
+
+    } else {
+
+        confirmPassword.type = "password";
+
+        this.classList.replace("fa-eye-slash", "fa-eye");
+
+    }
+
+});
+
+const form = document.querySelector("form");
+
+const passwordError = document.getElementById("passwordError");
+
+function checkPasswords() {
+
+    if (confirmPassword.value === "") {
+        passwordError.style.display = "none";
+        return;
+    }
+
+    if (password.value !== confirmPassword.value) {
+        passwordError.style.display = "block";
+        passwordError.textContent = "❌ Passwords don't match. Please recheck.";
+    } else {
+        passwordError.style.display = "none";
+    }
+}
+
+password.addEventListener("input", checkPasswords);
+confirmPassword.addEventListener("input", checkPasswords);
+
+form.addEventListener("submit", function(e){
+
+    if(password.value !== confirmPassword.value){
+
+        e.preventDefault();
+
+        passwordError.style.display = "block";
+        passwordError.textContent = "Passwords don't match. Please recheck.";
+
+        confirmPassword.focus();
+
+        return;
+    }
+
+    // Form will submit normally to Flask
+});
+
+</script>
+</body>
+</html>  

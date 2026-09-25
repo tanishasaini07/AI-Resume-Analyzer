@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | AI Resume Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='resources.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+</div>
+
+<ul class="nav-links">
+
+<li><a href="{{ url_for('home') }}">HOME</a></li>
+
+<li><a class="active" href="{{ url_for('resources') }}">RESOURCES</a></li>
+
+<li><a href="{{ url_for('about') }}">ABOUT</a></li>
+
+<li><a href="{{ url_for('signup') }}">SIGN UP</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+</header>
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="tag">📚 Learning Hub</span>
+
+        <h1>
+            Master Programming <br>
+            Build Projects <br>
+            Get Your Dream Job
+        </h1>
+
+        <p>
+            Follow our recommended learning roadmap, practice coding,
+            build real-world projects, and prepare yourself for
+            placements with free YouTube resources.
+        </p>
+
+        <a href="#roadmaps" class="hero-btn">
+            Explore Resources
+        </a>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img src="{{ url_for('static', filename='images/resource.png') }}" alt="Learning Resources">
+
+    </div>
+
+</section>
+<section class="roadmaps" id="roadmaps">
+
+    <h2>Programming Learning Roadmaps</h2>
+
+    <p class="section-text">
+        Start learning with these free YouTube playlists carefully selected for beginners.
+    </p>
+
+    <div class="roadmap-container">
+
+        <!-- Python -->
+        <div class="roadmap-card">
+            <h3>🐍 Python</h3>
+            <p>Beginner to Advanced Python Programming.</p>
+
+            <a href="https://www.youtube.com/results?search_query=python+full+course"
+               target="_blank"
+               class="watch-btn">
+               Watch Playlist
+            </a>
+        </div>
+
+        <!-- C -->
+        <div class="roadmap-card">
+            <h3>💻 C Programming</h3>
+            <p>Master C Programming from basics.</p>
+
+            <a href="https://www.youtube.com/results?search_query=c+programming+playlist"
+               target="_blank"
+               class="watch-btn">
+               Watch Playlist
+            </a>
+        </div>
+
+        <!-- C++ -->
+        <div class="roadmap-card">
+            <h3>⚡ C++</h3>
+            <p>Learn OOP, STL and Competitive Coding.</p>
+
+            <a href="https://www.youtube.com/results?search_query=c%2B%2B+playlist"
+               target="_blank"
+               class="watch-btn">
+               Watch Playlist
+            </a>
+        </div>
+
+        <!-- DSA -->
+        <div class="roadmap-card">
+            <h3>📘 DSA</h3>
+            <p>Arrays, Trees, Graphs and Interview Questions.</p>
+
+            <a href="https://www.youtube.com/results?search_query=dsa+playlist"
+               target="_blank"
+               class="watch-btn">
+               Watch Playlist
+            </a>
+        </div>
+
+        <!-- Web -->
+        <div class="roadmap-card">
+            <h3>🌐 Web Development</h3>
+            <p>HTML, CSS, JavaScript and Flask.</p>
+
+            <a href="https://www.youtube.com/results?search_query=web+development+playlist"
+               target="_blank"
+               class="watch-btn">
+               Watch Playlist
+            </a>
+        </div>
+
+        <!-- Machine Learning -->
+        <div class="roadmap-card">
+            <h3>🤖 Machine Learning</h3>
+            <p>NumPy, Pandas, Scikit-Learn and AI.</p>
+
+            <a href="https://www.youtube.com/results?search_query=machine+learning+playlist"
+               target="_blank"
+               class="watch-btn">
+               Watch Playlist
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<section class="practice">
+
+    <h2>Coding Practice Platforms</h2>
+
+    <p class="section-text">
+        Improve your coding skills by solving problems on these popular platforms.
+    </p>
+
+    <div class="practice-container">
+
+        <div class="practice-card">
+            <h3>💻 LeetCode</h3>
+            <p>Practice coding interview questions.</p>
+
+            <a href="https://leetcode.com/"
+               target="_blank"
+               class="practice-btn">
+               Visit Website
+            </a>
+        </div>
+
+        <div class="practice-card">
+            <h3>🏆 HackerRank</h3>
+            <p>Learn programming through challenges.</p>
+
+            <a href="https://www.hackerrank.com/"
+               target="_blank"
+               class="practice-btn">
+               Visit Website
+            </a>
+        </div>
+
+        <div class="practice-card">
+            <h3>📚 GeeksforGeeks</h3>
+            <p>DSA tutorials and interview preparation.</p>
+
+            <a href="https://www.geeksforgeeks.org/"
+               target="_blank"
+               class="practice-btn">
+               Visit Website
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<section class="youtube-section">
+
+    <h2>Recommended YouTube Channels</h2>
+
+    <p class="section-text">
+        Learn from some of the best free programming educators.
+    </p>
+
+    <div class="youtube-container">
+
+        <div class="youtube-card">
+            <h3>🚀 Apna College</h3>
+            <p>Complete programming, DSA, Web Development and Placement preparation.</p>
+
+            <a href="https://www.youtube.com/@ApnaCollegeOfficial"
+               target="_blank"
+               class="youtube-btn">
+               Visit Channel
+            </a>
+        </div>
+
+        <div class="youtube-card">
+            <h3>💻 CodeWithHarry</h3>
+            <p>Python, Java, C, C++, Web Development and Projects.</p>
+
+            <a href="https://www.youtube.com/@CodeWithHarry"
+               target="_blank"
+               class="youtube-btn">
+               Visit Channel
+            </a>
+        </div>
+
+        <div class="youtube-card">
+            <h3>🔥 Love Babbar</h3>
+            <p>DSA, Interview Preparation and Placement Roadmaps.</p>
+
+            <a href="https://www.youtube.com/@CodeHelp"
+               target="_blank"
+               class="youtube-btn">
+               Visit Channel
+            </a>
+        </div>
+
+        <div class="youtube-card">
+            <h3>🌍 freeCodeCamp</h3>
+            <p>Full programming courses completely free.</p>
+
+            <a href="https://www.youtube.com/@freecodecamp"
+               target="_blank"
+               class="youtube-btn">
+               Visit Channel
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<section class="interview-section">
+
+    <h2>Interview Preparation</h2>
+
+    <p class="section-text">
+        Prepare yourself for technical interviews, HR rounds, aptitude tests and resume building.
+    </p>
+
+    <div class="interview-container">
+
+        <div class="interview-card">
+            <h3>💼 Technical Interview</h3>
+
+            <p>Master DSA, OOPs, DBMS, OS and interview coding questions.</p>
+
+            <a href="https://www.youtube.com/results?search_query=technical+interview+preparation"
+               target="_blank"
+               class="interview-btn">
+                Watch Now
+            </a>
+        </div>
+
+        <div class="interview-card">
+            <h3>🗣 HR Interview</h3>
+
+            <p>Learn how to answer HR questions with confidence.</p>
+
+            <a href="https://www.youtube.com/results?search_query=HR+Interview+Questions"
+               target="_blank"
+               class="interview-btn">
+                Watch Now
+            </a>
+        </div>
+
+        <div class="interview-card">
+            <h3>📄 Resume Building</h3>
+
+            <p>Create ATS-friendly resumes and improve your profile.</p>
+
+            <a href="https://www.youtube.com/results?search_query=resume+building"
+               target="_blank"
+               class="interview-btn">
+                Watch Now
+            </a>
+        </div>
+
+        <div class="interview-card">
+            <h3>🧠 Aptitude</h3>
+
+            <p>Practice quantitative aptitude and logical reasoning.</p>
+
+            <a href="https://www.youtube.com/results?search_query=aptitude+preparation"
+               target="_blank"
+               class="interview-btn">
+                Watch Now
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<section class="resource-cta">
+
+    <h2>Ready to Start Your Learning Journey?</h2>
+
+    <p>
+        Learn programming, build projects, improve your resume,
+        practice coding, and prepare for interviews—all in one place.
+    </p>
+
+    <div class="journey">
+
+        <span>📘 Learn</span>
+
+        <span>➡</span>
+
+        <span>💻 Practice</span>
+
+        <span>➡</span>
+
+        <span>🚀 Build Projects</span>
+
+        <span>➡</span>
+
+        <span>📄 Resume</span>
+
+        <span>➡</span>
+
+        <span>💼 Placement</span>
+
+    </div>
+
+   <a href="{{ url_for('home') }}" class="cta-button">
+    Analyze Your Resume
+</a>
+
+</section>
+</body>
+</html>
+
+</body>
+</html>

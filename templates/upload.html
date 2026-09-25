@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+<header>
+
+    <div class="logo">
+        Resume<span>AI</span>
+    </div>
+
+    <div class="welcome-text">
+        Welcome back, <span>{{ session.get('username', 'User') }}</span> 👋
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li><a class="active" href="#">Upload Resume</a></li>
+
+            <li class="profile">
+                <div class="profile-icon">
+                     🤖
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <!-- LEFT SIDE -->
+
+        <div class="left-panel">
+
+            <div class="hero-badge">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                AI Powered Resume Analysis
+            </div>
+
+            <h1>
+                AI Resume
+                <span>Analyzer</span>
+            </h1>
+
+        <p>
+Upload your resume and receive AI-powered insights, ATS compatibility, and personalized recommendations tailored for your target company.
+</p>  
+
+<div class="feature-list">
+
+    <div class="feature-item">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Smart Resume Analysis</span>
+    </div>
+
+    <div class="feature-item">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>ATS Compatibility Score</span>
+    </div>
+
+    <div class="feature-item">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Instant AI Suggestions</span>
+    </div>
+
+</div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <form class="upload-card"
+            action="{{ url_for('upload') }}"
+            method="POST"
+            enctype="multipart/form-data">
+
+            <div class="upload-area">
+
+                <div class="upload-circle">
+
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+                </div>
+
+                <h2>Upload Your Resume</h2>
+
+                <p>
+                    Drag & Drop your PDF resume here
+                </p>
+
+                <span>or</span>
+
+                <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf"
+                    hidden>
+
+    <label
+    for="resume"
+    class="browse-btn">
+    Browse Resume
+</label>
+
+<div class="file-box" id="fileBox">
+    <i class="fa-solid fa-file-pdf"></i>
+
+    <span id="fileName">
+        No file selected
+    </span>
+
+    <button type="button" id="removeFile">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>          
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+
+                    Target Company
+
+                </label>
+
+                <select
+                    name="company"
+                    required>
+
+                    <option value="">Select Company</option>
+
+                    <option value="Google">Google</option>
+
+                    <option value="Microsoft">Microsoft</option>
+
+                    <option value="Amazon">Amazon</option>
+
+                    <option value="Infosys">Infosys</option>
+
+                    <option value="TCS">TCS</option>
+
+                    <option value="Wipro">Wipro</option>
+
+                </select>
+
+            </div>
+
+            <button
+                type="submit"
+                class="analyze-btn">
+
+                Analyze Resume
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- ================= BOTTOM INFO ================= -->
+
+    <section class="bottom-bar">
+
+        <div class="info-card">
+
+            <i class="fa-solid fa-shield"></i>
+
+            <div>
+
+                <h4>Secure Upload</h4>
+
+                <p>Your data is encrypted and protected.</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <div>
+
+                <h4>AI Powered</h4>
+
+                <p>Advanced resume analysis using AI.</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <div>
+
+                <h4>Instant Results</h4>
+
+                <p>Receive detailed insights within seconds.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+<script>
+
+const resume=document.getElementById("resume");
+const fileName=document.getElementById("fileName");
+const removeFile=document.getElementById("removeFile");
+
+resume.addEventListener("change",function(){
+
+    if(this.files.length>0){
+        fileName.textContent=this.files[0].name;
+    }
+
+});
+
+removeFile.addEventListener("click",function(){
+
+    resume.value="";
+    fileName.textContent="No file selected";
+
+});
+
+</script>
+</body>
+
+</html>

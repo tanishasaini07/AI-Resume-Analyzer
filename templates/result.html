@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeAI Dashboard</title>
+
+     <link rel="stylesheet"
+      href="{{ url_for('static', filename='result.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="dashboard">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            Resume<span>AI</span>
+        </div>
+
+    <div class="welcome">
+    Welcome back,
+    <span>{{ username }}!</span> 👋
+</div>  
+
+        <div class="nav-right">
+
+            <button class="btn purple active">
+    Dashboard
+</button>
+
+    <button class="btn blue" onclick="window.location.href='{{ url_for('upload_page') }}'">
+    Analyze Another
+</button>     
+
+       <div class="icon">☀</div>
+
+<div class="profile">
+    🤖
+</div>     
+
+        </div>
+
+    </header>
+
+    <!-- ================= TOP CARDS ================= -->
+
+    <section class="top-cards">
+
+        <!-- Resume Score -->
+
+        <div class="card circle-card">
+
+            <h3>Resume Score</h3>
+
+           
+             <div class="circle">
+
+               <svg viewBox="0 0 160 160">
+
+                <circle
+                 cx="80"
+                 cy="80"
+                 r="55">
+                </circle>
+
+                <circle
+                  class="progress resume"
+                  cx="80"
+                  cy="80"
+                   r="55"
+                  style="--percent:{{score}}">
+                </circle>
+
+    </svg>
+
+    <div class="number">
+    <h2>{{score}}%</h2>
+</div>
+</div> 
+</div>
+                
+
+                
+        
+    <!-- ATS -->
+
+<div class="card circle-card">
+
+    <h3>ATS Score</h3>
+
+    <div class="circle">
+
+        <svg viewBox="0 0 160 160">
+
+            <circle cx="80" cy="80" r="55"></circle>
+
+            <circle
+                class="progress ats"
+                cx="80"
+                cy="80"
+                r="55"
+                style="--percent:{{ats_score}};">
+            </circle>
+
+        </svg>
+
+        <div class="number">
+
+            <h2>{{ats_score}}%</h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- Job Match -->
+
+    <!-- Job Match -->
+
+<div class="card circle-card">
+
+    <h3>Job Match</h3>
+
+    <div class="circle">
+
+        <svg viewBox="0 0 160 160">
+
+            <circle cx="80" cy="80" r="55"></circle>
+
+            <circle
+                class="progress match"
+                cx="80"
+                cy="80"
+                r="55"
+                style="--percent:{{company_match}};">
+            </circle>
+
+        </svg>
+
+        <div class="number">
+
+            <h2>{{company_match}}%</h2>
+
+        </div>
+
+    </div>
+
+</div>   
+
+        <!-- Skills -->
+
+        <div class="card small-card">
+
+            <h3>Skills Found</h3>
+
+            <h1>{{skills|length}}</h1>
+
+            <span class="green">● Strong</span>
+
+        </div>
+
+        <!-- Missing -->
+
+        <div class="card small-card">
+
+            <h3>Missing Skills</h3>
+
+            <h1>{{missing_skills|length}}</h1>
+
+            <span class="orange">● Improve</span>
+
+        </div>
+
+        <!-- Grade -->
+
+        <div class="card small-card">
+
+            <h3>Resume Grade</h3>
+
+         <h1 class="grade-text">{{grade}}</h1>
+
+            <span class="green">● Excellent</span>
+
+        </div>
+
+    </section>
+
+<!-- =======================
+MIDDLE SECTION
+======================= -->
+
+<section class="middle-section">
+
+    <!-- AI Suggestions -->
+
+    <div class="card suggestion-card">
+
+        <h2>AI Suggestions</h2>
+
+        <div class="suggestion-list">
+
+            {% if suggestions %}
+
+                {% for suggestion in suggestions %}
+
+                <div class="suggestion-item">
+
+                    <div class="dot"></div>
+
+                    <p>{{ suggestion }}</p>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <div class="suggestion-item">
+                    <div class="dot"></div>
+                    <p>Your resume looks good. No suggestions available.</p>
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <!-- Radar Chart -->
+
+    <div class="card chart-card">
+
+        <h2>Resume Analysis</h2>
+
+        <canvas id="resumeChart"></canvas>
+
+    </div>
+
+    <!-- Resume Sections -->
+
+    <div class="card section-card">
+
+        <h2>Resume Sections</h2>
+
+    <div class="section-list">
+
+    {% if sections %}
+
+        {% for section, present in sections.items() %}
+
+        <div class="section-row">
+
+            <span>{{ section }}</span>
+
+            {% if present %}
+
+                <span class="check">✓</span>
+
+            {% else %}
+
+                <span class="cross">✗</span>
+
+            {% endif %}
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="section-row">
+
+            <span>No section detected</span>
+
+        </div>
+
+    {% endif %}
+
+</div> 
+
+    </div>
+
+</section>
+
+<!-- ==========================
+BOTTOM SECTION
+========================== -->
+
+<section class="bottom-section">
+
+    <!-- Skills Found -->
+
+    <div class="card skills-card">
+
+        <h2>Skills Found</h2>
+
+        <div class="skill-container">
+
+            {% if skills %}
+
+                {% for skill in skills %}
+
+                <span class="skill-badge">
+                    {{ skill }}
+                </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No skills detected.</p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <!-- Missing Skills -->
+
+    <div class="card missing-card">
+
+        <h2>Missing Skills</h2>
+
+        <div class="skill-container">
+
+            {% if missing_skills %}
+
+                {% for skill in missing_skills %}
+
+                <span class="missing-badge">
+                    {{ skill }}
+                </span>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>No missing skills.</p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+RESUME PREVIEW
+========================== -->
+
+<section class="preview-section">
+
+    <div class="card preview-card">
+
+        <h2>Resume Preview</h2>
+
+        <div class="resume-preview">
+
+            <pre>{{ resume_text }}</pre>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Logout Button -->
+<div class="logout-container">
+    <a href="{{ url_for('home') }}" class="logout-btn">Logout</a>
+</div>
+
+</div>
+
+<script>
+const ctx = document.getElementById("resumeChart");
+
+if (ctx) {
+
+    new Chart(ctx, {
+
+        type: "radar",
+
+        data: {
+
+            labels: [
+                "Skills",
+                "ATS",
+                "Projects",
+                "Experience",
+                "Education",
+                "Formatting"
+            ],
+
+            datasets: [{
+
+                label: "Resume",
+
+                data: [
+                    {{ (skills|length * 10) if (skills|length * 10) < 100 else 100 }},
+                    {{ ats_score }},
+                    {{ 100 if sections.get('Projects') else 0 }},
+                    {{ 100 if sections.get('Experience') else 0 }},
+                    {{ 100 if sections.get('Education') else 0 }},
+                    {{ score }}
+                ],
+
+                backgroundColor: "rgba(90,120,255,.25)",
+
+                borderColor: "#6b6dff",
+
+                borderWidth: 3,
+
+                pointRadius: 4
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            plugins: {
+
+                legend: {
+
+                    display: false
+
+                }
+
+            },
+
+            scales: {
+
+                r: {
+
+                    min: 0,
+
+                    max: 100,
+
+                    ticks: {
+
+                        display: false
+
+                    },
+
+                    grid: {
+
+                        color: "#2e3f77"
+
+                    },
+
+                    angleLines: {
+
+                        color: "#2e3f77"
+
+                    },
+
+                    pointLabels: {
+
+                        color: "white",
+
+                        font: {
+
+                            size: 13
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    });
+
+}
+</script>
+
+</body>
+
+</html>

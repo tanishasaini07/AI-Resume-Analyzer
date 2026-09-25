@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | AI Resume Analyzer</title>
+
+   <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="bg-glow glow1"></div>
+    <div class="bg-glow glow2"></div>
+
+    <!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/resources">RESOURCES</a></li>
+        <li><a href="/about" class="active">ABOUT</a></li>
+        <li><a href="/signup">SIGN UP</a></li>
+    </ul>
+
+</nav>
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="about-hero">
+
+        <div class="hero-left">
+
+      <div class="hero-badge">
+    <i class="fa-solid fa-wand-magic-sparkles"></i>
+    About Our Platform
+</div>
+
+<h1>
+    Transform Your Resume<br>
+    Into Your Dream Career
+</h1>
+
+<div class="line"></div>
+
+<p>
+    AI Resume Analyzer helps students and professionals build
+    stronger resumes with AI-powered analysis, ATS compatibility
+    checks, skill gap detection, and personalized recommendations
+    to improve their chances of getting shortlisted.
+</p>
+
+<div class="hero-buttons">
+
+    <a href="/upload-page" class="primary-btn">
+        Analyze Resume
+    </a>
+
+    <a href="#mission" class="secondary-btn">
+        Learn More
+    </a>
+
+</div>      
+
+        </div>
+
+<div class="hero-right">
+
+    <div class="image-glow"></div>
+ 
+    <img src="{{ url_for('static', filename='images/ai_robot.png') }}" alt="AI Robot">
+
+</div>
+    </section>
+
+    <!-- ================= OUR MISSION ================= -->
+
+    <section class="mission" id="mission">
+
+        <h2>Our Mission</h2>
+
+    <div class="mission-card">
+
+    <div class="mission-icon">
+        🎯
+    </div>
+
+    <div class="mission-content">
+
+        <p>
+            Our mission is to empower students and job seekers with
+            <span>Artificial Intelligence</span>. We simplify resume
+            improvement by providing <span>instant analysis</span>,
+            <span>ATS scoring</span>, <span>skill gap detection</span>,
+            and <span>personalized recommendations</span> so users can
+            confidently apply for their dream jobs.
+        </p>
+
+    </div>
+
+</div> 
+
+    </section>
+<!-- ================= FEATURES ================= -->
+
+<section class="features">
+
+    <h2>What Our Platform Does</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>Resume Score</h3>
+
+            <p>
+                Evaluate your resume with an AI-generated score and identify areas for improvement.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <h3>Skill Analysis</h3>
+
+            <p>
+                Detect missing skills and discover what recruiters expect in your resume.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-lightbulb"></i>
+
+            <h3>AI Suggestions</h3>
+
+            <p>
+                Receive smart recommendations to improve formatting, keywords, and content.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            <h3>ATS Friendly</h3>
+
+            <p>
+                Optimize your resume for Applicant Tracking Systems to improve hiring chances.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="workflow">
+
+    <h2>How It Works</h2>
+
+    <div class="workflow-container">
+
+        <div class="step">
+
+            <div class="circle">
+                <i class="fa-solid fa-upload"></i>
+            </div>
+
+            <h3>Upload Resume</h3>
+
+            <p>Select your resume in PDF format.</p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="circle">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <h3>AI Analysis</h3>
+
+            <p>Our AI scans and evaluates your resume.</p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="circle">
+                <i class="fa-solid fa-chart-column"></i>
+            </div>
+
+            <h3>Get Report</h3>
+
+            <p>Receive ATS score and improvement suggestions.</p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="circle">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <h3>Improve Resume</h3>
+
+            <p>Create a stronger resume for better opportunities.</p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="choose-us">
+
+    <h2>Why Choose Us?</h2>
+
+    <div class="choose-container">
+
+        <div class="choose-card">
+            <i class="fa-solid fa-robot"></i>
+            <h3>AI Powered</h3>
+            <p>Advanced AI analyzes your resume with intelligent recommendations.</p>
+        </div>
+
+        <div class="choose-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Secure Upload</h3>
+            <p>Your resume remains private and is processed securely.</p>
+        </div>
+
+        <div class="choose-card">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Fast Analysis</h3>
+            <p>Get detailed resume insights within seconds.</p>
+        </div>
+
+        <div class="choose-card">
+            <i class="fa-solid fa-file-circle-check"></i>
+            <h3>ATS Friendly</h3>
+            <p>Optimize your resume for Applicant Tracking Systems.</p>
+        </div>
+
+        <div class="choose-card">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h3>Smart Insights</h3>
+            <p>Receive actionable suggestions to strengthen your resume.</p>
+        </div>
+
+        <div class="choose-card">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Career Ready</h3>
+            <p>Increase your confidence before applying for jobs.</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= TECHNOLOGIES ================= -->
+
+<section class="technologies">
+
+    <h2>Technologies Used</h2>
+
+    <div class="tech-container">
+
+        <div class="tech-card">
+            <i class="fa-brands fa-html5"></i>
+            <h3>HTML5</h3>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h3>CSS3</h3>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-brands fa-js"></i>
+            <h3>JavaScript</h3>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-brands fa-python"></i>
+            <h3>Python</h3>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-solid fa-flask"></i>
+            <h3>Flask</h3>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-solid fa-brain"></i>
+            <h3>Artificial Intelligence</h3>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <h2>Ready to Build a Better Resume?</h2>
+
+    <p>
+        Upload your resume and let our AI analyze it in seconds.
+        Discover your strengths, identify improvements, and boost
+        your chances of getting shortlisted.
+    </p>
+ <a href="{{ url_for('home') }}" class="cta-btn">
+    Login first
+</a>
+
+</section>
+</body>
+
+</html>
